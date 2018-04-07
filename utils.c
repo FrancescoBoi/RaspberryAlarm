@@ -18,7 +18,11 @@ void createFolder(char * path)
 
 void getDateStr(char str[20])
 {
+<<<<<<< HEAD
     char year[5], common[4];
+=======
+    char year[5], common[3];
+>>>>>>> a9f44282db2c70a8b4ac7e87009fd13ce41b26ab
 
     time_t t = time(NULL);
     struct tm tm = *localtime(&t);
@@ -51,8 +55,12 @@ unsigned int countFiles(char* dir)
     struct dirent * entry;
     dirp = opendir(dir); /* There should be error handling after this */
     while ((entry = readdir(dirp)) != NULL) {
+<<<<<<< HEAD
         if (entry->d_type == DT_REG) /* If the entry is a regular file */
         {
+=======
+        if (entry->d_type == DT_REG) { /* If the entry is a regular file */
+>>>>>>> a9f44282db2c70a8b4ac7e87009fd13ce41b26ab
              file_count++;
 
         }
@@ -61,7 +69,11 @@ unsigned int countFiles(char* dir)
 
 }
 
+<<<<<<< HEAD
 void printFiles(char names[][24], unsigned int file_count)
+=======
+void printFiles(char* names[24], unsigned int file_count)
+>>>>>>> a9f44282db2c70a8b4ac7e87009fd13ce41b26ab
 {
     for (int i=0; i<file_count; i++)
     {
@@ -69,6 +81,7 @@ void printFiles(char names[][24], unsigned int file_count)
     }
 }
 
+<<<<<<< HEAD
 
 /*
  * The functions returns the oldest maxNameFiles2Retrieve files ordered by name
@@ -76,11 +89,15 @@ void printFiles(char names[][24], unsigned int file_count)
  */
 unsigned int filesByName(char names[][24], char* dir,
 		unsigned int maxNameFiles2Retrieve)
+=======
+unsigned int filesByName(char* names[24], char* dir)
+>>>>>>> a9f44282db2c70a8b4ac7e87009fd13ce41b26ab
 {
     unsigned int file_count = 0;
     DIR * dirp;
     struct dirent * entry;
     dirp = opendir(dir); /* There should be error handling after this */
+<<<<<<< HEAD
     char* localNames[24];
     while ((entry = readdir(dirp)) != NULL) {
         if (entry->d_type == DT_REG) { /* If the entry is a regular file */
@@ -88,6 +105,13 @@ unsigned int filesByName(char names[][24], char* dir,
             //names[file_count] = malloc(24*sizeof(char));
         	localNames[file_count] = malloc(24*sizeof(char));
         	localNames[file_count] = strdup(entry->d_name);
+=======
+
+    while ((entry = readdir(dirp)) != NULL) {
+        if (entry->d_type == DT_REG) { /* If the entry is a regular file */
+             //strncpy(names[file_count], entry->d_name,20);
+            names[file_count] = entry->d_name;
+>>>>>>> a9f44282db2c70a8b4ac7e87009fd13ce41b26ab
              file_count++;
         }
     }
@@ -95,15 +119,19 @@ unsigned int filesByName(char names[][24], char* dir,
     char temp[24];
     if (file_count>0)
     {
+<<<<<<< HEAD
         if (file_count>maxNameFiles2Retrieve)
         {
         	printf("Warning: in filesByName: too much elements in folder to retrieve all the names\n");
         	file_count = maxNameFiles2Retrieve;
         }
+=======
+>>>>>>> a9f44282db2c70a8b4ac7e87009fd13ce41b26ab
         for (int i=0; i<file_count-1; i++)
         {
             for (int j=i; j<file_count; j++)
             {
+<<<<<<< HEAD
                 if (strcmp(localNames[i], localNames[j])>0)
                 {
                     strncpy(temp, localNames[i],24);
@@ -147,3 +175,16 @@ unsigned int removeFiles(char* dir, unsigned int maxNumPics, char names[][24])
 	}
 	return numPicsInFolder;
 }
+=======
+                if (strcmp(names[i], names[j])>0)
+                {
+                    strncpy(temp, names[i],24);
+                    strncpy(names[i], names[j],24);
+                    strncpy(names[j], temp, 24);
+                    }
+            }
+        }
+    }
+    return file_count;
+}
+>>>>>>> a9f44282db2c70a8b4ac7e87009fd13ce41b26ab
