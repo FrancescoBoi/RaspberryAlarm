@@ -1,0 +1,31 @@
+<html>
+<style>
+img {
+    border: 1px solid black;
+    margin-top: 60px;
+    margin-left: 100px;
+    background-color: lightblue;
+}
+input {
+    margin-left: 1400px;
+    margin-top: -800px;
+}
+</style>
+<head><title>Home alarm system</title></head>
+<body>
+    <img style="float: left;" alt="" src="index.png" width="1200" height="800" id=image>
+    <div class="column">
+        <form  method="GET" action="http://192.168.1.122:5000/run">
+            <input type="submit" value="Activate          " size="30">
+        </form>
+        <br />
+        <form method="GET" action="http://192.168.1.122:5000/view_pict">
+           <input type="submit" value="See picture    " style="width:auto"  size="30">
+        </form>
+        <br />
+        <form method="GET" action="http://192.168.1.122:5000/temp">
+            <input  type="submit" value="Temperature"  size="30">
+        </form>
+    </div>
+</body>
+</html>

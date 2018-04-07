@@ -1,0 +1,50 @@
+<html>
+<style>
+h2 {
+    border: 1px solid black;
+    margin-top: 40px;
+    margin-left: 100px;
+    background-color: lightblue;
+}
+</style>
+<style>
+img {
+    border: 1px solid black;
+    margin-top: 20px;
+    margin-left: 100px;
+    background-color: lightblue;
+}
+</style>
+<style>
+form {
+    margin-left: 1400px;
+    margin-top: -700px;
+    background-color: lightblue;
+}
+</style>
+<body style="background-color:AliceBlue ;">
+<h2><font color=red> Wrong username and/or password</font></h2>
+    <img style="float: left;" alt="" src="index.png" width="1200" height="770" id=image>
+    <form style="float: left;" action="login.php" METHOD="POST">
+        <label data-domain="domain.com">
+        <input align="right" type="Text" placeholder="User" NAME="user"><BR>
+        <label>
+        <label data-domain="domain.com">
+        <input align="right" type="Password" placeholder="Password" NAME="pass"><BR>
+        <label>
+        <input type="Submit" VALUE="LOGIN"><BR>
+    </form>
+</body>
+<script>
+window.onresize = function(event) {
+    var w = 0;
+    if (window.innerWidth != null) {
+        w = window.innerWidth;
+    }
+    else if (document.body != null) {
+        w = document.body.clientWidth;
+    }
+    document.getElementById("image").style.width = (w >= 1800) ? 1200 : w/1.2;
+};
+</script>
+</html>
