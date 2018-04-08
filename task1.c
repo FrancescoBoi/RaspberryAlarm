@@ -28,7 +28,7 @@ void* task1(void *arg)
     pthread_cleanup_push(exitingThreadTask1, NULL);
     //create folder where to save pics
     createFolder(folderPath);
-
+``
     char names[10][24];
     char picname[24];
     int res = 0;
@@ -116,10 +116,6 @@ void takePic(char picname[24])
     /*Build string to create symbolic link*/
     strcat(finalcmd_ln, "sudo ln /home/pi/alarmSys/pics/");
     strcat(finalcmd_ln, picname);
-<<<<<<< HEAD
-=======
-    strcat(finalcmd_ln, ".jpg");
->>>>>>> a9f44282db2c70a8b4ac7e87009fd13ce41b26ab
     strcat(finalcmd_ln, " /var/www/html/pic.jpg");
     //printf("%s\n", finalcmd_ln);
     if ((err=remove("/var/www/html/*.jpg"))!=0)
