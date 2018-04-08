@@ -31,9 +31,6 @@ void* task1(void *arg)
 
 <<<<<<< HEAD
     char names[10][24];
-=======
-    char* names[24];
->>>>>>> a9f44282db2c70a8b4ac7e87009fd13ce41b26ab
     char picname[24];
     int res = 0;
     picname[0] = '\0';
@@ -41,19 +38,6 @@ void* task1(void *arg)
     //delete if more than 10 files
 <<<<<<< HEAD
     numPicsInFolder = removeFiles(folderPath, maxNumPics, names);
-=======
-    //printf("test\n" );
-    //printf("test2\n" );
-    while((numPicsInFolder =  filesByName(names, folderPath))>maxNumPics)
-    {
-
-        fileNameTodelete[0] = '\0';
-        strcat(fileNameTodelete, folderPath);
-        strcat(fileNameTodelete, names[0]);
-        printf("%s\n", fileNameTodelete);
-        remove(fileNameTodelete);
-    }
->>>>>>> a9f44282db2c70a8b4ac7e87009fd13ce41b26ab
 
     static unsigned int nexEl;
     nexEl = numPicsInFolder % maxNumPics;
@@ -61,10 +45,6 @@ void* task1(void *arg)
     while(1)
     {
         //static const unsigned int del = 300;
-<<<<<<< HEAD
-=======
-
->>>>>>> a9f44282db2c70a8b4ac7e87009fd13ce41b26ab
         val_read = digitalRead(INPIN);
         if (val_read && (!alarm_on)) //motion detected
         {
@@ -77,10 +57,6 @@ void* task1(void *arg)
                 strcat(fileNameTodelete, names[nexEl]);
                 printFiles(names, numPicsInFolder);
                 printf("File to be deleted %d: %s, ", nexEl, names[nexEl]);
-<<<<<<< HEAD
-=======
-                //printf("%s\n", fileNameTodelete);
->>>>>>> a9f44282db2c70a8b4ac7e87009fd13ce41b26ab
 
                 if ((res = remove(fileNameTodelete))!=0)
                 {
@@ -96,7 +72,6 @@ void* task1(void *arg)
             //update buffer
             takePic(picname);
             printf("value returned by takePic: %s\n", picname);
-<<<<<<< HEAD
             strcpy(names[nexEl], picname);
             printFiles(names, numPicsInFolder);
 
@@ -104,17 +79,6 @@ void* task1(void *arg)
             nexEl++;
             nexEl %= maxNumPics;
             digitalWrite(OUTPIN, LOW);
-=======
-            //names[nexEl] = picname;
-            strcpy(names[nexEl], picname); //ERROR HERE
-            printFiles(names, numPicsInFolder);
-
-            printf("curr element %d: %s\n",nexEl, names[nexEl]);
-            //printf("next element %d: %s\n",(nexEl+1)%10, names[(nexEl+1)%10]);
-            nexEl++;
-            nexEl %= maxNumPics;
-            digitalWrite(OUTPIN, HIGH);
->>>>>>> a9f44282db2c70a8b4ac7e87009fd13ce41b26ab
             printf("\nDetected movement: alarm tripped\n\n");
             alarm_on = TRUE;
             /*Give some time before another pic*/
@@ -122,11 +86,7 @@ void* task1(void *arg)
         else if (alarm_on && !val_read)
         {
             alarm_on = FALSE;
-<<<<<<< HEAD
             digitalWrite(OUTPIN, HIGH);
-=======
-            digitalWrite(OUTPIN, LOW);
->>>>>>> a9f44282db2c70a8b4ac7e87009fd13ce41b26ab
             printf("\nAlarm backed off\n\n");
         }
     }
