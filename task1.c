@@ -29,14 +29,12 @@ void* task1(void *arg)
     //create folder where to save pics
     createFolder(folderPath);
 
-<<<<<<< HEAD
     char names[10][24];
     char picname[24];
     int res = 0;
     picname[0] = '\0';
     static unsigned int numPicsInFolder;
     //delete if more than 10 files
-<<<<<<< HEAD
     numPicsInFolder = removeFiles(folderPath, maxNumPics, names);
 
     static unsigned int nexEl;
